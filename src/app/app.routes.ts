@@ -1,9 +1,19 @@
 import { Routes } from '@angular/router';
-import { BikeSearchComponent } from './pages/bike-search/bike-search.component';
-import { BikeDetailComponent } from './pages/bike-detail/bike-detail.component';
 
 export const routes: Routes = [
-  { path: 'bike-search', component: BikeSearchComponent },
-  { path: 'bike-detail/:id', component: BikeDetailComponent },
+  {
+    path: 'bike-search',
+    loadComponent: () =>
+      import('./pages/bike-search/bike-search.component').then(
+        (mod) => mod.BikeSearchComponent
+      ),
+  },
+  {
+    path: 'bike-detail/:id',
+    loadComponent: () =>
+      import('./pages/bike-detail/bike-detail.component').then(
+        (mod) => mod.BikeDetailComponent
+      ),
+  },
   { path: '', redirectTo: '/bike-search', pathMatch: 'full' },
 ];
