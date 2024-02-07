@@ -1,1 +1,8 @@
-<p>bike-detail works!</p>
+<div *ngIf="bikeDetails$ | async as bikeDetails; else notFound">
+  <h1>{{ bikeDetails.title }}</h1>
+  <img [src]="bikeDetails.large_img" alt="" />
+</div>
+
+<ng-template #notFound>
+  <div>Sorry not found</div>
+</ng-template>

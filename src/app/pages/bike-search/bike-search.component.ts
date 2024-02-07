@@ -1,44 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
-import { AsyncPipe } from '@angular/common';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { Cities } from './cities';
+import { Component, inject } from '@angular/core';
+import { BikeSearchItemModel } from '../../core/models/bike-search-item.model';
+import { BikeService } from '../../core/services/bike.service';
+import { BikeSearchResultsComponent } from './components/bike-search-results/bike-search-results.component';
+import { BikeSearchFormComponent } from './components/bike-search-form/bike-search-form.component';
 
 @Component({
   selector: 'app-bike-search',
   standalone: true,
-  imports: [
-    FormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatAutocompleteModule,
-    ReactiveFormsModule,
-    AsyncPipe,
-  ],
+  imports: [BikeSearchFormComponent, BikeSearchResultsComponent],
   templateUrl: './bike-search.component.html',
   styleUrl: './bike-search.component.scss',
 })
-export class BikeSearchComponent implements OnInit {
-  myControl = new FormControl('');
-  options: string[] = Cities;
-  filteredOptions!: Observable<string[]>;
+export class BikeSearchComponent {
+  private bikeService = inject(BikeService);
+  bikes: BikeSearchItemModel[] = [];
 
-  ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map((value) => this._filter(value || ''))
-    );
-  }
-
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter((option) =>
-      option.toLowerCase().includes(filterValue)
-    );
+  search(city: string) {
+    this.bikeService
+      .search(city)
+      .subscribe((result) => (this.bikes = result.bikes));
   }
 }

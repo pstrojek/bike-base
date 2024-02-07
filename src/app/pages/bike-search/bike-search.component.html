@@ -1,18 +1,4 @@
 <div class="search-form-wrapper">
-  <form class="search-form">
-    <mat-form-field class="full-width">
-      <mat-label>City</mat-label>
-      <input type="text"
-             placeholder="Pick one"
-             aria-label="City"
-             matInput
-             [formControl]="myControl"
-             [matAutocomplete]="auto">
-      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        @for (option of filteredOptions | async; track option) {
-          <mat-option [value]="option">{{option}}</mat-option>
-        }
-      </mat-autocomplete>
-    </mat-form-field>
-  </form>
+  <app-bike-search-form (search)="search($event)"></app-bike-search-form>
 </div>
+<app-bike-search-results [bikes]="bikes"></app-bike-search-results>

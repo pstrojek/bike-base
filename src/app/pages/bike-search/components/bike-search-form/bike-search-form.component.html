@@ -1,0 +1,13 @@
+<form class="search-form" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>City</mat-label>
+    <input type="text" placeholder="Pick one" aria-label="City" matInput [formControl]="cityControl"
+      [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <ng-container *ngFor="let option of filteredOptions | async;">
+        <mat-option [value]="option">{{option}}</mat-option>
+      </ng-container>
+    </mat-autocomplete>
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit" [disabled]="!cityControl.valid">Search</button>
+</form>

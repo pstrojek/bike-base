@@ -1,0 +1,10 @@
+.bikes {
+  display: flex;
+  align-items: center;
+  padding-top: 48px;
+  flex-direction: column;
+
+  .bike {
+    margin-bottom: 32px;
+  }
+}

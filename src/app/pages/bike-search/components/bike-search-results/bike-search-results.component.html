@@ -1,0 +1,9 @@
+<div class="bikes">
+  <ng-container *ngFor="let bike of bikes; trackBy: trackByBikeSearchItem">
+    <div class="bike">
+      <h2>{{bike.title}}</h2>
+      <img [src]="bike.thumb" alt="">
+      <button mat-raised-button [routerLink]="['/bike-detail', bike.id]">More details</button>
+    </div>
+  </ng-container>
+</div>
