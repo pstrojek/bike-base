@@ -1,20 +1,46 @@
 # BikeBase
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
+App created for a coding assignment using bikeindex.org API
 
-## Development server
+## Before starting
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Make sure you have correct Node.js version. Currently for angular 17.1.2 you need to have Node.js ^18.13.0 or ^20.9.0
 
-## Code scaffolding
+## To start the app
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Build
+## My work process
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Research and Prototyping
+  - Checking acceptance criteria
+  - Trying the api (https://bikeindex.org/documentation/api_v3)
+  - Trying potential libraries
+- Implementation
+- Fixes and improvements
+- Making sure the acceptance criteria are meet
 
-## Out of scope TODO
+## Libraries I choose for this project
 
-- replace Karma with Jest
-- add e2e (Cypress)
+In bigger production projects I prefer building custom UI component library according to project requirements and possibly design system, but in this small project building with ready ui libs was better option to have good ui experience and fast development.
+
+- Angular material
+  - Good autocomplete component
+  - Most popular for angular
+  - Fast development
+- Tailwind
+  - Good for consistency with padding margins and all the sizes
+  - Mobile first development
+  - Fast development
+
+## Limitations
+
+- Currently city suggestions includes bigger cities in europe, normally this could be moved to an API that dynamically gives you suggestions of cities from the entire globe.
+- Currently after search you get 25 items and that's it. Ideally we should have "Load more" button or pagination
+
+## Out of scope things I would normally do
+
+- Replace Karma with Jest
+- Add e2e (Cypress)
+- Write more unit tests
+- Investigate if we need a server side rendering
