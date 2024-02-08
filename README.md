@@ -47,6 +47,7 @@ In bigger production projects I prefer building custom UI component library acco
 - Add e2e (Cypress)
 - Write more unit tests
 - Investigate if we need server side rendering
+- Add translations
 
 ## Credits
 
