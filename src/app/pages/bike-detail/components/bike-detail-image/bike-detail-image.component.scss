@@ -1,0 +1,17 @@
+$bike-image-size: 350px;
+
+.bike-image {
+  position: relative;
+  width: $bike-image-size;
+  height: $bike-image-size;
+  border: 1px solid #000;
+}
+
+.no-photo {
+  background-color: #c2c2c2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

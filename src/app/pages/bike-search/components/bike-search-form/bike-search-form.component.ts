@@ -1,6 +1,11 @@
 import { NgFor, AsyncPipe } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -22,12 +27,11 @@ import { Observable, map, startWith } from 'rxjs';
     MatButtonModule,
   ],
   templateUrl: './bike-search-form.component.html',
-  styleUrl: './bike-search-form.component.scss',
 })
 export class BikeSearchFormComponent {
   @Output() search = new EventEmitter<string>();
 
-  cityControl = new FormControl('');
+  cityControl = new FormControl('', [Validators.minLength(3)]);
   options: string[] = Cities;
   filteredOptions!: Observable<string[]>;
 

@@ -1,19 +1,24 @@
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { RouterModule } from '@angular/router';
-import { BikeSearchItemModel } from '../../../../core/models/bike-search-item.model';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BikeSearchResultsItemComponent } from './components/bike-search-results-item/bike-search-results-item.component';
+import { BikeSearchItemModel } from '@core/models/bike-search-item.model';
 
 @Component({
   selector: 'app-bike-search-results',
   standalone: true,
-  imports: [NgFor, RouterModule, MatButtonModule],
+  imports: [
+    NgFor,
+    NgIf,
+    MatProgressSpinnerModule,
+    BikeSearchResultsItemComponent,
+  ],
   templateUrl: './bike-search-results.component.html',
-  styleUrl: './bike-search-results.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BikeSearchResultsComponent {
   @Input() bikes: BikeSearchItemModel[] = [];
+  @Input() isLoading = false;
 
   trackByBikeSearchItem(index: number, item: BikeSearchItemModel): number {
     return item.id;

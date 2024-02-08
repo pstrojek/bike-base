@@ -1,9 +1,11 @@
-<div class="bikes">
+<div
+  *ngIf="bikes.length"
+  class="max-w-3xl mx-auto rounded-lg bg-white flex flex-col p-4 shadow"
+>
   <ng-container *ngFor="let bike of bikes; trackBy: trackByBikeSearchItem">
-    <div class="bike">
-      <h2>{{bike.title}}</h2>
-      <img [src]="bike.thumb" alt="">
-      <button mat-raised-button [routerLink]="['/bike-detail', bike.id]">More details</button>
-    </div>
+    <app-bike-search-results-item [bike]="bike"></app-bike-search-results-item>
   </ng-container>
+</div>
+<div class="flex justify-center">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
 </div>

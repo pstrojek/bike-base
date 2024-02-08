@@ -1,0 +1,7 @@
+<div class="bike-image">
+  <img class="object-contain" *ngIf="imgSrc; else noPhoto" [ngSrc]="imgSrc" alt="" fill priority />
+</div>
+
+<ng-template #noPhoto>
+  <div class="no-photo">No photo</div>
+</ng-template>

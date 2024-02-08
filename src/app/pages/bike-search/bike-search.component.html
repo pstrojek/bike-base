@@ -1,4 +1,18 @@
-<div class="search-form-wrapper">
-  <app-bike-search-form (search)="search($event)"></app-bike-search-form>
+<div class="page-wrapper">
+  <div class="container mx-auto">
+    <div class="text-center text-white pt-12 pb-8">
+      <h1 class="text-3xl custom-text-shadow">
+        Quickly find any bike in any City with BikeBase!
+      </h1>
+    </div>
+    <div class="search-form-wrapper">
+      <app-bike-search-form (search)="search($event)"></app-bike-search-form>
+    </div>
+    <div class="p-12">
+      <app-bike-search-results
+        [bikes]="bikes()"
+        [isLoading]="isSearchLoading()"
+      ></app-bike-search-results>
+    </div>
+  </div>
 </div>
-<app-bike-search-results [bikes]="bikes"></app-bike-search-results>

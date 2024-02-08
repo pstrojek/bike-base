@@ -1,15 +1,31 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BikeService } from '../../core/services/bike.service';
-import { AsyncPipe, NgIf } from '@angular/common';
-import { map } from 'rxjs';
+import { AsyncPipe, DatePipe, NgIf } from '@angular/common';
+import { finalize, tap } from 'rxjs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BikeService } from '@core/services/bike.service';
+import { BikeDetailImageComponent } from './components/bike-detail-image/bike-detail-image.component';
+import { BikeDetailRowComponent } from './components/bike-detail-row/bike-detail-row.component';
+import { BikeDetailStatusComponent } from './components/bike-detail-status/bike-detail-status.component';
 
 @Component({
   selector: 'app-bike-detail',
   standalone: true,
-  imports: [NgIf, AsyncPipe],
+  imports: [
+    NgIf,
+    AsyncPipe,
+    MatProgressSpinnerModule,
+    DatePipe,
+    BikeDetailImageComponent,
+    BikeDetailRowComponent,
+    BikeDetailStatusComponent,
+  ],
   templateUrl: './bike-detail.component.html',
-  styleUrl: './bike-detail.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BikeDetailComponent {
@@ -18,7 +34,8 @@ export class BikeDetailComponent {
   private get paramId() {
     return Number(this.route.snapshot.paramMap.get('id'));
   }
+  isLoading = signal(true);
   bikeDetails$ = this.bikeService
     .getById(this.paramId)
-    .pipe(map((it) => it.bike));
+    .pipe(finalize(() => this.isLoading.set(false)));
 }
