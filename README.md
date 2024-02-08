@@ -46,8 +46,8 @@ In bigger production projects I prefer building custom UI component library acco
 - Replace Karma with Jest
 - Add e2e (Cypress)
 - Write more unit tests
-- Investigate if we need a server side rendering
+- Investigate if we need server side rendering
 
 ## Credits
 
-- Background photo on free to use license is from [unsplash.com](https://unsplash.com/photos/person-cycling-on-road-distance-with-mountain-during-daytime-VfUN94cUy4o)
+- Background photo (free to use license) is from [unsplash.com](https://unsplash.com/photos/person-cycling-on-road-distance-with-mountain-during-daytime-VfUN94cUy4o)
