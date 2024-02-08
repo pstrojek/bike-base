@@ -1,10 +1,13 @@
+![bike base screenshot](screenshot.png)
+
 # BikeBase
 
 App created for a coding assignment using bikeindex.org API
 
 ## Before starting
 
-Make sure you have correct Node.js version. Currently for angular 17.1.2 you need to have Node.js ^18.13.0 or ^20.9.0
+Make sure you have correct Node.js version.  
+Currently for angular 17.1.2 you need to have Node.js ^18.13.0 or ^20.9.0
 
 ## To start the app
 
@@ -22,7 +25,7 @@ Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The appl
 
 ## Libraries I choose for this project
 
-In bigger production projects I prefer building custom UI component library according to project requirements and possibly design system, but in this small project building with ready ui libs was better option to have good ui experience and fast development.
+In bigger production projects I prefer building custom UI component library according to project requirements and possibly design system, but in this small project building with ready UI libs was better option to have good UI experience and fast development.
 
 - Angular material
   - Good autocomplete component
@@ -44,3 +47,7 @@ In bigger production projects I prefer building custom UI component library acco
 - Add e2e (Cypress)
 - Write more unit tests
 - Investigate if we need a server side rendering
+
+## Credits
+
+- Background photo on free to use license is from [unsplash.com](https://unsplash.com/photos/person-cycling-on-road-distance-with-mountain-during-daytime-VfUN94cUy4o)
