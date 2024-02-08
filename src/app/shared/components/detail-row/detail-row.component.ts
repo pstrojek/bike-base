@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-bike-detail-row',
+  selector: 'app-detail-row',
   standalone: true,
   imports: [],
   template: `
@@ -11,7 +11,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BikeDetailRowComponent {
+export class DetailRowComponent {
   @Input() label: string | null = '';
   @Input() value: string | null = '';
 }

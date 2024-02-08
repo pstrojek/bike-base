@@ -5,19 +5,19 @@
       <app-bike-detail-image [imgSrc]="bikeDetails.large_img"></app-bike-detail-image>
       <div class="md:pl-16">
         <h2 class="text-2xl mb-4">Bike details</h2>
-        <app-bike-detail-row label="Serial" [value]=" bikeDetails.serial"></app-bike-detail-row>
-        <app-bike-detail-row label="Manufacturer" [value]=" bikeDetails.manufacturer_name"></app-bike-detail-row>
-        <app-bike-detail-row label="Model" [value]=" bikeDetails.frame_model"></app-bike-detail-row>
-        <app-bike-detail-row label="Primary colors" [value]="bikeDetails.frame_colors.join(', ')"></app-bike-detail-row>
+        <app-detail-row label="Serial" [value]="bikeDetails.serial"></app-detail-row>
+        <app-detail-row label="Manufacturer" [value]="bikeDetails.manufacturer_name"></app-detail-row>
+        <app-detail-row label="Model" [value]="bikeDetails.frame_model"></app-detail-row>
+        <app-detail-row label="Primary colors" [value]="bikeDetails.frame_colors.join(', ')"></app-detail-row>
 
         <h3 class="text-xl mt-8 mb-4">Bike status</h3>
         <app-bike-detail-status [stolen]="bikeDetails.stolen" [status]="bikeDetails.status"></app-bike-detail-status>
         <div class="mt-4" *ngIf="bikeDetails.stolen">
-          <app-bike-detail-row label="Stolen location" [value]=" bikeDetails.stolen_location"></app-bike-detail-row>
-          <app-bike-detail-row label="Stolen at" [value]="bikeDetails.date_stolen | date"></app-bike-detail-row>
+          <app-detail-row label="Stolen location" [value]="bikeDetails.stolen_location"></app-detail-row>
+          <app-detail-row label="Stolen at" [value]="bikeDetails.date_stolen | date"></app-detail-row>
         </div>
         <div class="mt-4" *ngIf="!bikeDetails.stolen">
-          <app-bike-detail-row label="Found location" [value]=" bikeDetails.location_found"></app-bike-detail-row>
+          <app-detail-row label="Found location" [value]="bikeDetails.location_found"></app-detail-row>
         </div>
       </div>
     </div>

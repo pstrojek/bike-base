@@ -6,12 +6,12 @@ import {
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AsyncPipe, DatePipe, NgIf } from '@angular/common';
-import { finalize, tap } from 'rxjs';
+import { finalize } from 'rxjs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BikeService } from '@core/services/bike.service';
 import { BikeDetailImageComponent } from './components/bike-detail-image/bike-detail-image.component';
-import { BikeDetailRowComponent } from './components/bike-detail-row/bike-detail-row.component';
 import { BikeDetailStatusComponent } from './components/bike-detail-status/bike-detail-status.component';
+import { DetailRowComponent } from '@shared/components/detail-row/detail-row.component';
 
 @Component({
   selector: 'app-bike-detail',
@@ -21,8 +21,8 @@ import { BikeDetailStatusComponent } from './components/bike-detail-status/bike-
     AsyncPipe,
     MatProgressSpinnerModule,
     DatePipe,
+    DetailRowComponent,
     BikeDetailImageComponent,
-    BikeDetailRowComponent,
     BikeDetailStatusComponent,
   ],
   templateUrl: './bike-detail.component.html',

@@ -1,18 +1,27 @@
 <div class="flex mb-8 flex-col md:flex-row w-full">
-  <div class="thumbnail-container mx-auto">
+  <div class="mx-auto">
     <a [routerLink]="['/bike-detail', bike.id]">
-      <img *ngIf="bike.thumb; else noThumb" [ngSrc]="bike.thumb" fill />
+      <div class="thumbnail-container">
+        <img *ngIf="bike.thumb; else noThumb" [ngSrc]="bike.thumb" fill />
+      </div>
     </a>
   </div>
   <div class="flex-1 pl-4">
-    <h3 class="text-lg mb-2" [title]="bike.title">
+    <h3 class="text-lg mb-2 font-medium" [title]="bike.title">
       <a [routerLink]="['/bike-detail', bike.id]">{{ bike.title }}</a>
     </h3>
     <div>
-      <div>Serial: {{ bike.serial }}</div>
-      <div>Primary colors: {{ bike.frame_colors.join(", ") }}</div>
-      <div>Status: {{ bike.status }}</div>
-      <div *ngIf="bike.stolen">Stolen location: {{ bike.stolen_location }}</div>
+      <app-detail-row label="Serial" [value]="bike.serial"></app-detail-row>
+      <app-detail-row
+        label="Primary colors"
+        [value]="bike.frame_colors.join(', ')"
+      ></app-detail-row>
+      <app-detail-row label="Status" [value]="bike.status"></app-detail-row>
+      <app-detail-row
+        *ngIf="bike.stolen"
+        label="Stolen location"
+        [value]="bike.stolen_location"
+      ></app-detail-row>
     </div>
     <button
       class="mt-4"
